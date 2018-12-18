@@ -3,18 +3,24 @@ import PropTypes from "prop-types"
 import { css } from "emotion"
 
 let baseStyles = css({
-    border: '1px solid gray',
+    border: '1px solid',
     borderRadius: '5px',
     boxShadow: 'none',
-    width: '30px'
+    width: '30px',
+    textAlign: 'center',
+    '&:focus': 
+        { 
+            borderBottom: 'solid green 1px'            
+        }
 })
 
 export default class Input extends Component {
     static propTypes = {
         type: PropTypes.string,
-        onChange: PropTypes.func
+        onChange: PropTypes.func,
+        customStyles: PropTypes.string
     }
-
+    
     constructor(props) {
         super(props);
         this.state = {value: this.props.value}
@@ -26,6 +32,6 @@ export default class Input extends Component {
     }
 
     render() {
-        return <input className={baseStyles} type={this.props.type} value={this.state.value} onChange={this.handleChange.bind(this)}></input>
+        return <input className={css`${baseStyles} ${this.props.customStyles}`} type={this.props.type} value={this.state.value} onChange={this.handleChange.bind(this)}></input>
     }
 }

@@ -1,24 +1,24 @@
 import React, { Component } from "react";
 import { hot } from "react-hot-loader";
-import { css } from 'emotion'
+import { css, injectGlobal } from 'emotion'
 import Match from './components/Match/Match'
 
-const style = css`
-    color: hotpink;
+injectGlobal`
+   * { font-family: "Helvetica" },
 `
-
-let headerStyle = css({
-    fontFamily: "MonopolWebRubrik-Bold",
-    color: "red"
-  })
-
+let containerStyles = css({
+    padding: "5px"
+})
 class App extends Component {
     
     render() {
         return(
-            <Match>
-                <h1 className={headerStyle}>marre ASFASF!</h1>
-            </Match>
+            <div className={containerStyles}>
+                <Match />
+                <Match />
+                <Match />
+                <Match />
+            </div>
         )
     }
 }

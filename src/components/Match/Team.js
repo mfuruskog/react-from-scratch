@@ -5,8 +5,16 @@ import Input from "../Common/Input"
 
 let baseStyles = css({
     display: 'flex',
-    justifyContent: 'space-between'    
+    justifyContent: 'space-between',
+    padding: "5px"
 })
+let inputStyles = css({
+    border: 0,
+    borderBottom: "solid black 1px",
+    borderRadius: 0,
+    '&:focus': { borderBottom: 'solid green 1px'}
+})
+
 class Team extends Component {
     static propTypes = {
         name: PropTypes.string,
@@ -21,7 +29,7 @@ class Team extends Component {
         return (
             <div className={baseStyles}>
                 <span>{this.props.name}</span>
-                <Input type="number" value={this.props.goals} onChange={this.handleGoalChange.bind(this)}></Input>
+                <Input type="text" value={this.props.goals} onChange={this.handleGoalChange.bind(this)} customStyles={inputStyles}></Input>
             </div>
         )
     }

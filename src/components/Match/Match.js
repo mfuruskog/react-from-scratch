@@ -1,17 +1,22 @@
 import React, {Component} from "react"
 import { css } from "emotion"
 import Team from "./Team"
+import { colors } from "../../globals/colors"
 
 let baseStyles = css({
     display: 'flex',
     flexDirection: 'column',
-    width: '100px'
+    width: '150px',
+    border: 'solid 1px',
+    borderRadius: '5px',
+    padding: '5px',
+    marginBottom: '10px',
+    borderColor: colors.green
 })
 
 class Match extends Component {
     constructor(props) {
-        super(props)
-        
+        super(props)        
     }
 
     static propTypes = {
